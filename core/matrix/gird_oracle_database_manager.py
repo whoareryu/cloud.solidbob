@@ -56,19 +56,28 @@ def import_models() -> None:
     Alembic의 env.py 상단에서도 호출되어 autogenerate 감지를 보장합니다.
     """
     models_to_load = [
-        # Titanic — 12개 ORM
-        "titanic.adapter.outbound.orm.crew_andrews_architect_orm",
-        "titanic.adapter.outbound.orm.crew_hartley_violin_orm",
-        "titanic.adapter.outbound.orm.crew_james_director_orm",
-        "titanic.adapter.outbound.orm.crew_lowe_boat_orm",
-        "titanic.adapter.outbound.orm.crew_smith_captain_orm",
-        "titanic.adapter.outbound.orm.crew_walter_roaster_orm",
-        "titanic.adapter.outbound.orm.passenger_cal_tester_orm",
-        "titanic.adapter.outbound.orm.passenger_isidor_couple_orm",
-        "titanic.adapter.outbound.orm.passenger_jack_trainer_orm",
-        "titanic.adapter.outbound.orm.passenger_molly_scaler_orm",
-        "titanic.adapter.outbound.orm.passenger_rose_model_orm",
-        "titanic.adapter.outbound.orm.passenger_ruth_survivor_orm",
+        # identity — DID / VC 위임 모듈
+        "identity.adapter.outbound.orm.user_orm",
+        "identity.adapter.outbound.orm.credential_type_def_orm",
+        "identity.adapter.outbound.orm.trusted_issuer_orm",
+        "identity.adapter.outbound.orm.verifiable_credential_orm",
+        "identity.adapter.outbound.orm.partner_orm",
+        "identity.adapter.outbound.orm.subscription_orm",
+        # medical_record — 의료 데이터 / 블록체인 검증 모듈
+        "medical_record.adapter.outbound.orm.medical_institution_orm",
+        "medical_record.adapter.outbound.orm.drug_orm",
+        "medical_record.adapter.outbound.orm.drug_interaction_orm",
+        "medical_record.adapter.outbound.orm.medical_record_orm",
+        "medical_record.adapter.outbound.orm.blockchain_anchor_orm",
+        "medical_record.adapter.outbound.orm.chain_config_orm",
+        "medical_record.adapter.outbound.orm.prescription_orm",
+        "medical_record.adapter.outbound.orm.emergency_medical_info_orm",
+        "medical_record.adapter.outbound.orm.emergency_access_orm",
+        "medical_record.adapter.outbound.orm.access_log_orm",
+        "medical_record.adapter.outbound.orm.insurance_claim_orm",
+        "medical_record.adapter.outbound.orm.insurance_claim_record_orm",
+        # share_token — Redis 일회성 공유 토큰 모듈
+        "share_token.adapter.outbound.orm.share_consent_orm",
     ]
 
     for model_path in models_to_load:
